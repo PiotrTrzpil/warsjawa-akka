@@ -52,7 +52,7 @@ class LogReceiverService(messenger: ActorRef) extends Directives {
                map: Map[String, String] =>
                   requests.mark()
                   messenger ! JsonLogMessage(appName, map)
-                  "Got it: "+map
+                  s"Got it: $map from app: $appName"
             }
          }
       }
