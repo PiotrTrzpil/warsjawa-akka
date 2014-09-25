@@ -4,8 +4,10 @@ version := "1.0"
 
 scalaVersion := "2.11.2"
 
-resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
-
+resolvers ++= Seq(
+  "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
+  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases"
+)
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka"  %% "akka-actor"       % "2.3.6",
