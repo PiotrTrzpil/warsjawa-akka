@@ -17,12 +17,12 @@ class MongoSaver extends Actor with ActorLogging{
 
    override def receive = {
       case JsonLogMessage(appName, jsonMap) =>
-         val collection = db.collection(appName)
-         val doc: BSONDocument = BSONDocument(jsonMap.mapValues(BSONString))
-         collection.insert(doc).onComplete {
-            case Success(lastError) => log.debug("Successfully inserted log for app: " + appName)
-            case Failure(e) => log.error("Error while inserting log", e)
-         }
+//         val collection = db.collection(appName)
+//         val doc: BSONDocument = BSONDocument(jsonMap.mapValues(BSONString))
+//         collection.insert(doc).onComplete {
+//            case Success(lastError) => log.debug("Successfully inserted log for app: " + appName)
+//            case Failure(e) => log.error("Error while inserting log", e)
+//         }
    }
 
 

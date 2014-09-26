@@ -13,7 +13,7 @@ class LogAggregatorActor extends Actor{
 
    val aggregated : Meter = Metrics.metrics.meter("aggregated")
 
-   val saver = context.actorOf(Props[MongoSaver])
+   val saver = context.actorOf(Props[MongoSaver], "saver")
 
 
    def receive = {
