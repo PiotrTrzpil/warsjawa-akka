@@ -19,7 +19,7 @@ class LogReceiverActor(aggregator: ActorRef) extends Actor with ActorLogging {
    import LogReceiverActor._
    import scala.concurrent.duration._
  //  val aggregatorRemote = context.actorSelection("akka.tcp://akka-warsjawa@127.0.0.1:2552/user/logAggregator")
-   val actorPath = ActorPath.fromString("akka.tcp://akka-warsjawa@10.8.8.186:2552/user/logAggregator")
+   val actorPath = ActorPath.fromString("akka.tcp://akka-warsjawa@127.0.0.1:2552/user/logAggregator")
    val aggregatorRemote = context.actorOf(ReliableProxy.props(actorPath, 100.millis))
    val processor = context.actorOf(
       Props(classOf[LogProcessor]), "logProcessor")
