@@ -6,6 +6,7 @@ scalaVersion := "2.11.2"
 
 resolvers += "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
+resolvers += "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka"  %% "akka-actor"       % "2.3.6",

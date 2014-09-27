@@ -17,8 +17,7 @@ class LogReceiverService(messenger: ActorRef) extends Directives {
    val routeLine =
      path("log-line" / Segment) { appName =>
        post {
-          handleWith {
-             line: String =>
+          handleWith { line: String =>
                 requests.mark()
                 messenger ! LineLogMessage(appName, line)
                 s"Got it: $line from app: $appName"

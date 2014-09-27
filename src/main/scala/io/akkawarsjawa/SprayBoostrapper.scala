@@ -9,7 +9,9 @@ trait SprayBoostrapper { this: AkkaBootstrapper =>
 
    val routes = new LogReceiverService(logReceiver).route
 
-   val rootService = system.actorOf(Props(new RoutedHttpService(routes)))
+   val rootService = system.actorOf(
+      Props(new RoutedHttpService(routes)))
 
-   IO(Http)(system) ! Http.Bind(rootService, "0.0.0.0", port = 8080)
+   IO(Http)(system) ! Http.Bind(rootService, "0.0.0.0",
+      port = 8080)
 }
