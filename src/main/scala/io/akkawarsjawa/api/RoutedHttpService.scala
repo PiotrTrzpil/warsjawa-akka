@@ -4,7 +4,7 @@ import spray.http.StatusCodes._
 import spray.http._
 import spray.routing._
 import util.control.NonFatal
-import akka.actor.{ActorLogging, Actor}
+import akka.actor.{ActorContext, ActorLogging, Actor}
 import spray.util.LoggingContext
 
 
@@ -12,7 +12,7 @@ class RoutedHttpService(route: Route) extends Actor with HttpService with ActorL
 
    case class ErrorResponseException(responseStatus: StatusCode, response: Option[HttpEntity]) extends Exception
 
-   implicit def actorRefFactory = context
+   implicit def actorRefFactory: ActorContext = context
 
   implicit val handler = ExceptionHandler {
     case NonFatal(ErrorResponseException(statusCode, entity)) => ctx =>

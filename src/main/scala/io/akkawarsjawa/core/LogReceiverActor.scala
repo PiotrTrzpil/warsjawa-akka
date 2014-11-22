@@ -18,9 +18,6 @@ class LogReceiverActor(aggregator: ActorRef) extends Actor with ActorLogging {
 
    import LogReceiverActor._
    import scala.concurrent.duration._
- //  val aggregatorRemote = context.actorSelection("akka.tcp://akka-warsjawa@127.0.0.1:2552/user/logAggregator")
-   val actorPath = ActorPath.fromString("akka.tcp://akka-warsjawa@127.0.0.1:2552/user/logAggregator")
-   val aggregatorRemote = context.actorOf(ReliableProxy.props(actorPath, 100.millis))
    val processor = context.actorOf(
       Props(classOf[LogProcessor]), "logProcessor")
 
@@ -31,7 +28,7 @@ class LogReceiverActor(aggregator: ActorRef) extends Actor with ActorLogging {
    def receive: Receive = {
       case message @ JsonLogMessage(appName, jsonMap) =>
          log.debug(s"Received json for app: $appName")
-         aggregatorRemote ! message
+         aggregator ! message
       case lineMessage @ LineLogMessage(appName, line) =>
          log.debug(s"Received single line for app: $appName")
          processor ! lineMessage

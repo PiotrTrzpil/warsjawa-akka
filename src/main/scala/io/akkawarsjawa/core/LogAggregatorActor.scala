@@ -18,10 +18,7 @@ class LogAggregatorActor extends Actor{
 
    def receive = {
       case message @ JsonLogMessage(appName, jsonMap) =>
-         var j = 0
-         for(i <- 1 to 50000) {
-            j = j + 1
-         }
+
          aggregated.mark()
          saver ! message
    }

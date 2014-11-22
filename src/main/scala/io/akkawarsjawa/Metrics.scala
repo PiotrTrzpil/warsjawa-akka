@@ -10,5 +10,5 @@ object Metrics {
      .convertRatesTo(TimeUnit.SECONDS)
      .convertDurationsTo(TimeUnit.MILLISECONDS)
      .build()
-   reporter.start(1, TimeUnit.SECONDS)
+ //  reporter.start(1, TimeUnit.SECONDS)
 }

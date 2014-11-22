@@ -12,6 +12,7 @@ trait AkkaBootstrapper {
    val logAggregator : ActorRef = system.actorOf(
       FromConfig.props(Props(classOf[LogAggregatorActor])),
       "logAggregator")
+
    val logReceiver = system.actorOf(
       Props(classOf[LogReceiverActor], logAggregator), "logReceiver")
 }

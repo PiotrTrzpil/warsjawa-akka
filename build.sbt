@@ -19,7 +19,6 @@ libraryDependencies ++= Seq(
   "org.json4s"         %% "json4s-native"    % "3.2.10",
   "io.dropwizard.metrics" % "metrics-core"   % "3.1.0",
   "ch.qos.logback"        % "logback-classic"% "1.1.2",
-   "org.reactivemongo" %% "reactivemongo" % "0.10.5.akka23-SNAPSHOT",
   "io.spray"           %% "spray-testkit"    % "1.3.1"        % "test",
   "com.typesafe.akka"  %% "akka-testkit"     % "2.3.6"        % "test",
   "com.novocode"        % "junit-interface"  % "0.7"          % "test->default"
